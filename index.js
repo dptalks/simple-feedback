@@ -1,17 +1,18 @@
-var express = require("express")
-var app = express()
+const express = require("express");
+const util = require("util");
+const app = express();
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-var sqlite3 = require('sqlite3').verbose()
-const DBSOURCE = "feedback.db"
+var sqlite3 = require('sqlite3').verbose();
+
+const DBSOURCE = "feedback.db";
 const db = new sqlite3.Database(DBSOURCE, (err) => {
-    if (err) {
-      // Cannot open database
-      console.error(err.message)
-      throw err
+	if(err) {
+		console.error(err.message);
+		throw err;
 	}
 });
 
@@ -20,20 +21,24 @@ var HTTP_PORT = 8011
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
+
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
+
     // Pass to next layer of middleware
 	next();
 });
 
 
 app.listen(HTTP_PORT, () => {
-	console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
+	console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT));
 });
 
 
@@ -52,23 +57,24 @@ app.get('/list', (req, res) => {
 	});
 });
 
-//app.post("/save", bodyparser, (req, res, next) => {
 app.post("/save", (req, res) => {
 	console.log(JSON.stringify(req.body));
 	if('a1' in req.body) {
-		db.run(`
-			INSERT INTO feedback VALUES (
+		db.run("INSERT INTO feedback VALUES (?,?,?,?,?,?,?)",
+			[
 				null,
-				'${req.body.a1}',
-				'${req.body.a2}',
-				'${req.body.a3}',
-				'${req.body.a4}',
-				'${req.body.t}'
-			)
-		`);
+				req.body.a1,
+				req.body.a2,
+				req.body.a3,
+				req.body.a4,
+				req.body.t,
+				req.headers["user-agent"]
+			]
+		);
 	}
 	res.end(JSON.stringify({"thank":"you"}));
 });
+
 app.get("/", (req, res) => {
 
 	res.send(`<!DOCTYPE html>
@@ -131,7 +137,7 @@ app.get("/", (req, res) => {
 	<body>
 	<div>
         <form id="feedback">
-		<p><h2>Please rate the Digital Peace Talks project in these aspects:</h2></p>
+		<p><b>Please rate the Digital Peace Talks project in these aspects:</b></p>
 		<ul>
 		<li>	
 			How do you like the idea of the Digital Peace talks?
@@ -222,9 +228,10 @@ app.get("/", (req, res) => {
 	</html>
 	`);
 	res.status(200);
-	console.log('bla');
+	console.log("Serve user at "+req.headers.host);
 });
 
 app.use(function(req, res){
 	res.status(404);
 });
+
