@@ -86,7 +86,7 @@ app.get("/", (req, res) => {
         <style>
 		body {
 			color: #fff;
-			background: #0071bc;
+			background: #00000000;
 		}
 		.rating {
 			direction: rtl;
