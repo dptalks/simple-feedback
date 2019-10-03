@@ -188,12 +188,16 @@ app.get("/", (req, res) => {
 		<textarea id="freetext" name="freetext" rows="5" cols="63"></textarea>
 		<br>
 		<input type="submit" value="Send">
-		<span id="rating-result"></span>
+		<button id="cancel" type="button">Cancel</button
 	</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function(event) {
+		jQuery('#cancel').on('click', (event) => {
+			console.log('ready to suicide');
+			parent.postMessage("simple-feedback-finished","*");
+		})
 		jQuery('#feedback').on('submit', function(event) {
 			event.preventDefault();
 			event.stopImmediatePropagation();
@@ -210,9 +214,11 @@ app.get("/", (req, res) => {
 				cache: false, 
 				data: JSON.stringify({a1: a1, a2: a2, a3: a3, a4: a4, t: t}),
 				success: function(data){
+					parent.postMessage("simple-feedback-finished","*")
 					alert('Thank You!');
 				},
 				error: function(jqXHR, status, err) {
+					parent.postMessage("simple-feedback-finished","*")
 					alert('text status '+status+', err '+err);
 				},
 				dataType: 'json',
