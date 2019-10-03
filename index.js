@@ -86,7 +86,7 @@ app.get("/", (req, res) => {
         <style>
 		body {
 			color: #fff;
-			background: #00000000;
+			background: #0071bc66;
 		}
 		.rating {
 			direction: rtl;
@@ -145,7 +145,7 @@ app.get("/", (req, res) => {
 			<span class="rating">
 			<input type="radio" name="rating1" value="5"><span class="star"></span>
 			<input type="radio" name="rating1" value="4"><span class="star"></span>
-    			<input type="radio" name="rating1" value="3"><span class="star"></span>
+    		<input type="radio" name="rating1" value="3"><span class="star"></span>
 			<input type="radio" name="rating1" value="2"><span class="star"></span>
 			<input type="radio" name="rating1" value="1"><span class="star"></span>
 			</span>
@@ -156,7 +156,7 @@ app.get("/", (req, res) => {
 			<span class="rating">
 			<input type="radio" name="rating2" value="5"><span class="star"></span>
 			<input type="radio" name="rating2" value="4"><span class="star"></span>
-    			<input type="radio" name="rating2" value="3"><span class="star"></span>
+    		<input type="radio" name="rating2" value="3"><span class="star"></span>
 			<input type="radio" name="rating2" value="2"><span class="star"></span>
 			<input type="radio" name="rating2" value="1"><span class="star"></span>
 			</span>
@@ -167,7 +167,7 @@ app.get("/", (req, res) => {
 			<span class="rating">
 			<input type="radio" name="rating3" value="5"><span class="star"></span>
 			<input type="radio" name="rating3" value="4"><span class="star"></span>
-    			<input type="radio" name="rating3" value="3"><span class="star"></span>
+    		<input type="radio" name="rating3" value="3"><span class="star"></span>
 			<input type="radio" name="rating3" value="2"><span class="star"></span>
 			<input type="radio" name="rating3" value="1"><span class="star"></span>
 			</span>
@@ -178,7 +178,7 @@ app.get("/", (req, res) => {
 			<span class="rating">
 			<input type="radio" name="rating4" value="5"><span class="star"></span>
 			<input type="radio" name="rating4" value="4"><span class="star"></span>
-    			<input type="radio" name="rating4" value="3"><span class="star"></span>
+    		<input type="radio" name="rating4" value="3"><span class="star"></span>
 			<input type="radio" name="rating4" value="2"><span class="star"></span>
 			<input type="radio" name="rating4" value="1"><span class="star"></span>
 			</span>
