@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    background: #0071bc66;
+    background: #0071bc;
 }
 
 .rating {
@@ -20,7 +20,7 @@ body {
 }
 
 .rating span.star:before {
-    color: #777777;
+    color: #F0F3F5;
     content: "\uf006";
 }
 
