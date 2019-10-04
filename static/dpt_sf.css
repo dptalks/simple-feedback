@@ -21,7 +21,7 @@ body {
 
 .rating span.star:before {
     color: #F0F3F5;
-    content: "\uf006";
+    content: "\f006";
 }
 
 .rating span.star {
@@ -39,7 +39,7 @@ body {
 
 .rating span.star:before {
     color: #F0F3F5;
-    content: \uf006;
+    content: \f006;
 }
 
 .rating input:hover+span.star:before,
@@ -47,7 +47,7 @@ body {
 .rating input:checked+span.star:before,
 .rating input:checked+span.star~span.star:before {
     color: #66D1FF;
-    content: "\uf005";
+    content: "\f005";
 }
 
 .selected-rating {
