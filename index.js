@@ -82,7 +82,7 @@ app.get("/", (req, res) => {
 	<head>
         <title>Digital Peace Talks Feedback Form</title>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="dpt_sf.css" rel="stylesheet" />
+	<link href="static/dpt_sf.css" rel="stylesheet" />
 	</head>
 	<body>
 	<div>
@@ -186,6 +186,8 @@ app.get("/", (req, res) => {
     res.status(200);
     console.log("Serve user at " + req.headers.host);
 });
+
+app.use('/static', express.static(__dirname + '/static'))
 
 app.use(function(req, res) {
     res.status(404);
