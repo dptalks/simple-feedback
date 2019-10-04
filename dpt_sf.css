@@ -1,4 +1,15 @@
+@font-face {
+    font-family: "DPTFont";
+    src: url("https://proto1.dpt.world/static/font.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "DPTFontDin";
+    src: url("https://proto1.dpt.world/static/din.ttf") format("truetype");
+}
+
 body {
+    font-family: "DPTFont";
     color: #F0F3F5;
     background: #0071bc;
 }
