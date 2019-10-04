@@ -187,6 +187,8 @@ app.get("/", (req, res) => {
     console.log("Serve user at " + req.headers.host);
 });
 
+app.use('/static', express.static(__dirname + '/static'))
+
 app.use(function(req, res) {
     res.status(404);
 });
