@@ -1,5 +1,5 @@
 body {
-    color: #fff;
+    color: #F0F3F5;
     background: #0071bc;
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 .rating span.star:before {
-    color: #777777;
+    color: #F0F3F5;
     content: \uf006;
 }
 
@@ -46,11 +46,11 @@ body {
 .rating input:hover+span.star~span.star:before,
 .rating input:checked+span.star:before,
 .rating input:checked+span.star~span.star:before {
-    color: #ffd100;
+    color: #66D1FF;
     content: "\uf005";
 }
 
 .selected-rating {
-    color: #ffd100;
+    color: #66D1FF;
     font-weight: bold;
 }
