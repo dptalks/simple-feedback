@@ -82,56 +82,7 @@ app.get("/", (req, res) => {
 	<head>
         <title>Digital Peace Talks Feedback Form</title>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <style>
-		body {
-			color: #fff;
-			background: #0071bc66;
-		}
-		.rating {
-			direction: rtl;
-			font-size: 20px;
-			unicode-bidi: bidi-override;
-			padding: 10px 30px;
-			display: inline-block;
-		}
-		.rating input {
-			opacity: 0;
-			position: relative;
-			left: -15px;
-			z-index: 2;
-			cursor: pointer;
-		}
-		.rating span.star:before {
-			color: #777777;
-			content: "\uf006";
-		}
-		.rating span.star {
-			display: inline-block;
-			font-family: FontAwesome;
-			font-style: normal;
-			font-weight: normal;
-			position: relative;
-			z-index: 1;
-		}
-		.rating span {
-			margin-left: -15px;
-		}
-		.rating span.star:before {
-			color: #777777;
-			content: \uf006;
-		}
-		.rating input:hover + span.star:before,
-		.rating input:hover + span.star ~ span.star:before,
-		.rating input:checked + span.star:before,
-		.rating input:checked + span.star ~ span.star:before {
-			color: #ffd100;
-			content: "\uf005";
-		}
-		.selected-rating{
-			color: #ffd100;
-			font-weight: bold;
-		}
-        </style>
+	<link href="dpt_sf.css" rel="stylesheet" />
 	</head>
 	<body>
 	<div>
