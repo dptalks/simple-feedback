@@ -4,19 +4,19 @@ const app = express();
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var sqlite3 = require('sqlite3').verbose();
 
 const DBSOURCE = "feedback.db";
 const db = new sqlite3.Database(DBSOURCE, (err) => {
-	if(err) {
-		console.error(err.message);
-		throw err;
-	}
+    if (err) {
+        console.error(err.message);
+        throw err;
+    }
 });
 
-var HTTP_PORT = 8011 
+var HTTP_PORT = 8011
 
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
@@ -29,56 +29,54 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
     // Set to true if you need the website to include cookies in the requests
-	// sent
+    // sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
-	next();
+    next();
 });
 
 
 app.listen(HTTP_PORT, () => {
-	console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT));
+    console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT));
 });
 
 
 app.get('/list', (req, res) => {
-	var output = '';
-	db.all("SELECT * FROM feedback", [], (err, rows) => {
-		if (err) {
-			throw err;
-		}
-		rows.forEach((row) => {
-			console.log(row.id);
-			output += `${row.id}:${row.q1}:${row.q2}:${row.q3}:${row.q4}:${row.freetext}\n`;
-		});
-		res.header("Content-Type", "text/plain");
-		res.send(output);
-	});
+    var output = '';
+    db.all("SELECT * FROM feedback", [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        rows.forEach((row) => {
+            console.log(row.id);
+            output += `${row.id}:${row.q1}:${row.q2}:${row.q3}:${row.q4}:${row.freetext}\n`;
+        });
+        res.header("Content-Type", "text/plain");
+        res.send(output);
+    });
 });
 
 app.post("/save", (req, res) => {
-	console.log(JSON.stringify(req.body));
-	if('a1' in req.body) {
-		db.run("INSERT INTO feedback VALUES (?,?,?,?,?,?,?)",
-			[
-				null,
-				req.body.a1,
-				req.body.a2,
-				req.body.a3,
-				req.body.a4,
-				req.body.t,
-				req.headers["user-agent"]
-			]
-		);
-	}
-	res.end(JSON.stringify({"thank":"you"}));
+    console.log(JSON.stringify(req.body));
+    if ('a1' in req.body) {
+        db.run("INSERT INTO feedback VALUES (?,?,?,?,?,?,?)", [
+            null,
+            req.body.a1,
+            req.body.a2,
+            req.body.a3,
+            req.body.a4,
+            req.body.t,
+            req.headers["user-agent"]
+        ]);
+    }
+    res.end(JSON.stringify({ "thank": "you" }));
 });
 
 app.get("/", (req, res) => {
 
-	res.send(`<!DOCTYPE html>
+    res.send(`<!DOCTYPE html>
 	<html>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<head>
@@ -234,11 +232,10 @@ app.get("/", (req, res) => {
 	</body>
 	</html>
 	`);
-	res.status(200);
-	console.log("Serve user at "+req.headers.host);
+    res.status(200);
+    console.log("Serve user at " + req.headers.host);
 });
 
-app.use(function(req, res){
-	res.status(404);
+app.use(function(req, res) {
+    res.status(404);
 });
-
