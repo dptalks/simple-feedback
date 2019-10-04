@@ -1,11 +1,11 @@
 @font-face {
     font-family: "DPTFont";
-    src: url("https://proto1.dpt.world/static/font.ttf") format("truetype");
+    src: url("https://proto1.dpt.world/font.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "DPTFontDin";
-    src: url("https://proto1.dpt.world/static/din.ttf") format("truetype");
+    src: url("https://proto1.dpt.world/din.ttf") format("truetype");
 }
 
 body {
