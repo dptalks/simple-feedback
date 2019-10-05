@@ -101,7 +101,7 @@ app.get("/", (req, res) => {
 			</span>
 		</li>
 		<li>
-			How do you like the movement of the 3D camera? (1-5 Sterne)
+			How do you like the movement of the 3D camera?
 			<br>
 			<span class="rating">
 			<input type="radio" name="rating2" value="5"><span class="star"></span>
@@ -112,7 +112,7 @@ app.get("/", (req, res) => {
 			</span>
 		</li>
 		<li>
-			How do you like the chat module? (1-5 Sterne)
+			How do you like the chat module?
 			<br>
 			<span class="rating">
 			<input type="radio" name="rating3" value="5"><span class="star"></span>
@@ -123,7 +123,7 @@ app.get("/", (req, res) => {
 			</span>
 		</li>
 		<li>
-			How do you like the login process? (1-5 Sterne)
+			How do you like the login process? 
 			<br>
 			<span class="rating">
 			<input type="radio" name="rating4" value="5"><span class="star"></span>
@@ -134,7 +134,8 @@ app.get("/", (req, res) => {
 			</span>
 		</li>
 		</ul>
-		Feel free to express your Digital Peace Talks experience in your own words:<br>
+		Feel free to express your Digital Peace Talks experience<br>
+		in your own words:<br>
 		<textarea id="freetext" name="freetext" rows="5" cols="63"></textarea>
 		<br>
 		<input type="submit" value="Send">
