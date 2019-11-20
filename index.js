@@ -138,7 +138,7 @@ app.get("/", (req, res) => {
 		in your own words:<br>
 		<textarea id="freetext" name="freetext" rows="5" cols="36"></textarea>
 		<br>
-		<button id="cancel" type="button">Cancel</button
+		<button id="cancel" type="button">Cancel</button>
 		<input type="submit" value="Send">
 	</form>
 	</div>
