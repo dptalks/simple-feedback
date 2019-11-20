@@ -136,10 +136,10 @@ app.get("/", (req, res) => {
 		</ul>
 		Feel free to express your Digital Peace Talks experience<br>
 		in your own words:<br>
-		<textarea id="freetext" name="freetext" rows="5" cols="42"></textarea>
+		<textarea id="freetext" name="freetext" rows="5" cols="36"></textarea>
 		<br>
-		<input type="submit" value="Send">
 		<button id="cancel" type="button">Cancel</button
+		<input type="submit" value="Send">
 	</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
