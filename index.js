@@ -136,7 +136,7 @@ app.get("/", (req, res) => {
 		</ul>
 		Feel free to express your Digital Peace Talks experience<br>
 		in your own words:<br>
-		<textarea id="freetext" name="freetext" rows="5" cols="34"></textarea>
+		<textarea id="freetext" name="freetext" rows="5" cols="36"></textarea>
 		<br>
 		<input type="submit" value="Send">
 		<button id="cancel" type="button">Cancel</button
